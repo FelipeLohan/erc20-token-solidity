@@ -14,4 +14,10 @@ contract TokenERC20 {
       address indexed owner, address indexed spender, uint256 value
   );
 
+  constructor(string memory _name, string memory _symbol, uint8 _decimals) {
+    name = _name;
+    symbol = _symbol;
+    decimals = _decimals;
+}
+
 }
