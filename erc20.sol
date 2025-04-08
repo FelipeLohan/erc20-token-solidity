@@ -30,4 +30,24 @@ contract TokenERC20 {
       return true;
   }
 
+  function approve (address spender, uint256 amount) 
+    external 
+    returns (bool)
+  {
+    allowance [msg.sender] [spender] = amount;
+    emit Approval(msg.sender, spender, amount);
+    return true;
+  }
+
+  function transferFrom (address sender, address recipient, uint256 amount)
+    external
+    returns (bool)
+  {
+    allowance [sender] [msg.sender] -= amount;
+    balanceOf [sender] = amount;
+    balanceOf [recipient] += amount;
+    emit Transfer (sender, recipient, amount);
+    return true;
+  }
+
 }
