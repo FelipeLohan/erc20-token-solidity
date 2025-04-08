@@ -18,6 +18,16 @@ contract TokenERC20 {
     name = _name;
     symbol = _symbol;
     decimals = _decimals;
-}
+  }
+
+  function transfer (address recipient, uint256 amount)
+    external
+    returns (bool)
+  {
+      balanceOf [msg.sender] -= amount;
+      balanceOf [recipient] += amount;
+      emit Transfer(msg.sender, recipient, amount);
+      return true;
+  }
 
 }
