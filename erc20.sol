@@ -50,4 +50,22 @@ contract TokenERC20 {
     return true;
   }
 
+  function _mint(address to, uint256 amount) 
+    internal 
+  {
+    balanceOf [to] += amount;
+    totalSupply += amount;
+    emit Transfer(address(0), to, amount);
+  }
+
+  function _burn(address from, uint256 amount) 
+    internal 
+  {
+    balanceOf [from] = amount;
+    totalSupply -= amount;
+    emit Transfer(from, address (0), amount);
+  }
+
+  
+
 }
